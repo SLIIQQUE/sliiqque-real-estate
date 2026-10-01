@@ -1,6 +1,7 @@
 import "server-only";
 import type { Where } from "payload";
 import { PROPERTY_TYPES } from "@/lib/propertyTypes";
+import type { TypeCounts } from "@/lib/typeCounts";
 import {
   buildWhere,
   PAGE_SIZE,
@@ -53,21 +54,32 @@ export async function getPropertyBySlug(slug: string) {
   return res.docs[0] ?? null;
 }
 
+/** Active listings per property type, split by sale and rent (the two search modes). */
 export async function getPropertyTypeCounts() {
   const payload = await getPayloadClient();
-  const entries = await Promise.all(
-    PROPERTY_TYPES.map(async (type) => {
-      const r = await payload.count({
+  const count = async (type: string, listingType: "sale" | "rent") =>
+    (
+      await payload.count({
         collection: "properties",
-        where: { and: [ACTIVE, { propertyType: { equals: type } }] },
-      });
-      return [type, r.totalDocs] as const;
-    }),
+        where: {
+          and: [
+            ACTIVE,
+            { propertyType: { equals: type } },
+            { listingType: { equals: listingType } },
+          ],
+        },
+      })
+    ).totalDocs;
+  const entries = await Promise.all(
+    PROPERTY_TYPES.map(
+      async (type) =>
+        [
+          type,
+          { sale: await count(type, "sale"), rent: await count(type, "rent") },
+        ] as const,
+    ),
   );
-  return Object.fromEntries(entries) as Record<
-    (typeof PROPERTY_TYPES)[number],
-    number
-  >;
+  return Object.fromEntries(entries) as TypeCounts;
 }
 
 /** Active listing totals for the stats strip. */
@@ -81,8 +93,14 @@ export async function getListingStats() {
     pagination: false,
     select: { city: true },
   });
+  const [agents, neighborhoods] = await Promise.all([
+    payload.count({ collection: "agents" }),
+    payload.count({ collection: "neighborhoods" }),
+  ]);
   return {
     listed: all.docs.length,
     cities: new Set(all.docs.map((d) => d.city)).size,
+    agents: agents.totalDocs,
+    neighborhoods: neighborhoods.totalDocs,
   };
 }

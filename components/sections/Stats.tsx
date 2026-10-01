@@ -1,8 +1,8 @@
-import { Home2, Heart, People, Location } from "@/components/ui/icons";
+import { Home2, People, Location, Map1 } from "@/components/ui/icons";
 import { getListingStats } from "@/lib/queries/properties";
 
 export default async function Stats() {
-  const { listed, cities } = await getListingStats();
+  const { listed, cities, agents, neighborhoods } = await getListingStats();
   return (
     <section className="bg-[#102E26] text-white px-6 lg:px-14 py-8">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
@@ -13,14 +13,14 @@ export default async function Stats() {
             icon: Home2,
           },
           {
-            value: "98%",
-            label: "Client Satisfaction",
-            icon: Heart,
+            value: String(agents),
+            label: "Specialist Agents",
+            icon: People,
           },
           {
-            value: "4,200+",
-            label: "Happy Clients",
-            icon: People,
+            value: String(neighborhoods),
+            label: "Neighborhoods",
+            icon: Map1,
           },
           {
             value: String(cities),

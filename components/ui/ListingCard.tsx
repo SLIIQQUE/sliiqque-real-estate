@@ -1,4 +1,4 @@
-import { Heart, Location } from "@/components/ui/icons";
+import { Location } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import type { PropertyCard } from "@/lib/format";
@@ -30,9 +30,6 @@ export default function ListingCard({
             {d.badge}
           </span>
         </div>
-        <button className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur flex items-center justify-center hover:bg-white transition">
-          <Heart size={16} />
-        </button>
         <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center">
           <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur text-white text-[11px]">
             {d.beds}

@@ -78,7 +78,9 @@ export default async function Agents() {
               Your Next Chapter Starts Here
             </div>
             <div className="text-[12px] text-[#8A8A8A] mt-1">
-              Join 4,200+ happy clients who found their dream home with us.
+              Talk to any of our {agents.length}{" "}
+              {agents.length === 1 ? "agent" : "agents"} about buying, selling
+              or renting.
             </div>
           </div>
         </div>

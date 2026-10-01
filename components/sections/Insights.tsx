@@ -2,6 +2,7 @@ import { ArrowRight } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { mediaUrl } from "@/lib/format";
+import { readingMinutes } from "@/lib/readingTime";
 import { getArticles } from "@/lib/queries/content";
 
 const dateFmt = new Intl.DateTimeFormat("en-US", {
@@ -59,7 +60,7 @@ export default async function Insights() {
               <div className="flex items-center gap-2 text-[11px] text-[#9A9A9A]">
                 <span>{dateFmt.format(new Date(d.publishedAt))}</span>
                 <span>•</span>
-                <span>{d.readingMinutes} min read</span>
+                <span>{readingMinutes(d)} min read</span>
               </div>
               <h4 className="serif text-[18px] leading-[1.2] mt-2 group-hover:text-[#C26A4A] transition">
                 <Link

@@ -3,11 +3,15 @@ import Image from "next/image";
 import { mediaUrl } from "@/lib/format";
 import { getTestimonials } from "@/lib/queries/content";
 
-function Stars() {
+function Stars({ value }: { value: number }) {
+  const filled = Math.round(value);
   return (
-    <span className="flex gap-0.5 text-[#C26A4A]">
+    <span
+      className="flex gap-0.5 text-[#C26A4A]"
+      aria-label={`${value} out of 5`}
+    >
       {[0, 1, 2, 3, 4].map((i) => (
-        <Star1 key={i} size={14} variant="Bold" />
+        <Star1 key={i} size={14} variant={i < filled ? "Bold" : "Linear"} />
       ))}
     </span>
   );
@@ -15,6 +19,10 @@ function Stars() {
 
 export default async function Testimonials() {
   const testimonials = await getTestimonials();
+  const rated = testimonials.filter((t) => t.rating != null);
+  const average = rated.length
+    ? rated.reduce((sum, t) => sum + (t.rating ?? 0), 0) / rated.length
+    : null;
   return (
     <section className="px-6 lg:px-14 py-14 lg:py-20 bg-[#FFFBF6]">
       <div className="max-w-[1280px] mx-auto">
@@ -24,10 +32,15 @@ export default async function Testimonials() {
             <br />
             Real Results.
           </h3>
-          <div className="hidden lg:flex items-center gap-2 text-[12px] text-[#9A9A9A]">
-            <span>4.9/5 average rating from 2,847 reviews</span>
-            <Stars />
-          </div>
+          {average != null && (
+            <div className="hidden lg:flex items-center gap-2 text-[12px] text-[#9A9A9A]">
+              <span>
+                {average.toFixed(1)}/5 average rating from {rated.length}{" "}
+                {rated.length === 1 ? "review" : "reviews"}
+              </span>
+              <Stars value={average} />
+            </div>
+          )}
         </div>
         <div className="grid lg:grid-cols-2 gap-5">
           {testimonials.map((d) => (
@@ -36,7 +49,7 @@ export default async function Testimonials() {
               key={d.id}
             >
               <div className="mb-4">
-                <Stars />
+                <Stars value={d.rating ?? 5} />
               </div>
               <p className="serif text-[18px] lg:text-[20px] leading-[1.4]">
                 "{d.quote}"

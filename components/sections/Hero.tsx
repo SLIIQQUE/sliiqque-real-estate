@@ -1,8 +1,6 @@
 "use client";
 
 import {
-  Play,
-  Setting4,
   Location,
   Home2,
   DollarCircle,
@@ -14,15 +12,24 @@ import { useState } from "react";
 import { PROPERTY_TYPES } from "@/lib/propertyTypes";
 import { bandsFor } from "@/lib/priceBands";
 
-export default function Hero() {
+export default function Hero({
+  listed,
+  cities,
+}: {
+  listed: number;
+  cities: number;
+}) {
   const [tab, setTab] = useState("Buy");
   const [location, setLocation] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [priceRange, setPriceRange] = useState("");
 
   return (
-    <section id="home" className="relative px-3 lg:px-6 pt-[84px] lg:pt-6 pb-6">
-      <div className="relative rounded-[24px] lg:rounded-[32px] overflow-hidden min-h-[680px] lg:min-h-[820px] flex flex-col">
+    <section
+      id="home"
+      className="relative pt-[68px] lg:pt-0 lg:min-h-screen lg:flex lg:flex-col"
+    >
+      <div className="relative overflow-hidden min-h-[680px] lg:min-h-0 lg:flex-1 flex flex-col">
         <img
           src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop"
           alt="Luxury house with pool at sunset"
@@ -51,10 +58,6 @@ export default function Hero() {
             >
               Explore Properties
             </Link>
-            <button className="w-11 h-11 rounded-full bg-white/15 backdrop-blur border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition">
-              <Play size={16} variant="Bold" />
-            </button>
-            <span className="text-white/70 text-[12px]">Watch Story</span>
           </div>
         </div>
         <div className="relative z-20 mt-auto px-3 lg:px-6 pb-3 lg:pb-6">
@@ -69,11 +72,6 @@ export default function Hero() {
                   {d}
                 </button>
               ))}
-              <div className="ml-auto hidden lg:flex items-center gap-2 pr-3 text-[11px] text-[#9A9A9A]">
-                <span className="inline-flex items-center gap-1.5">
-                  <Setting4 size={14} /> Advanced Filters
-                </span>
-              </div>
             </div>
             <div className="h-[1px] bg-[#F0E9DE]" />
             <form
@@ -156,7 +154,10 @@ export default function Hero() {
             </form>
           </div>
           <div className="mx-auto max-w-[1120px] mt-3 flex items-center justify-between text-[11px] text-white/60 px-2">
-            <span>Trusted by 10k+ clients • 15+ cities</span>
+            <span>
+              {listed} {listed === 1 ? "home" : "homes"} listed • {cities}{" "}
+              {cities === 1 ? "city" : "cities"}
+            </span>
             <span className="hidden lg:block">
               Scroll <ArrowDown size={12} className="inline" />
             </span>

@@ -37,5 +37,5 @@ export async function getAgentListings(agentId: number, limit = 6) {
     limit,
     depth: 1,
   });
-  return res.docs.map(toCard);
+  return { listings: res.docs.map(toCard), total: res.totalDocs };
 }

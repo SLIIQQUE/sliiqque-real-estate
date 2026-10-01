@@ -13,6 +13,7 @@ export const metadata = { title: "Properties | SLIIQQUE Real Estate" };
 const HEADINGS = {
   buy: "Homes for Sale",
   rent: "Homes for Rent",
+  all: "All Homes",
   sell: "Sell Your Home",
 };
 

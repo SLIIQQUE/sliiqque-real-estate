@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "@/components/ui/icons";
 import { mediaUrl } from "@/lib/format";
+import { readingMinutes } from "@/lib/readingTime";
 import type { Article } from "@/payload-types";
 
 export const articleDate = new Intl.DateTimeFormat("en-US", {
@@ -32,10 +33,10 @@ export default function ArticleCard({ article: d }: { article: Article }) {
       <div className="pt-4">
         <div className="flex items-center gap-2 text-[11px] text-[#9A9A9A]">
           <span>{articleDate.format(new Date(d.publishedAt))}</span>
-          {d.readingMinutes && (
+          {readingMinutes(d) && (
             <>
               <span>•</span>
-              <span>{d.readingMinutes} min read</span>
+              <span>{readingMinutes(d)} min read</span>
             </>
           )}
         </div>

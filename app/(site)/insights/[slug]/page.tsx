@@ -7,6 +7,7 @@ import ShareButtons from "@/components/insights/ShareButtons";
 import InnerPage from "@/components/layout/InnerPage";
 import RichBody from "@/components/ui/RichBody";
 import { mediaUrl } from "@/lib/format";
+import { readingMinutes } from "@/lib/readingTime";
 import { getArticleBySlug, getRelatedArticles } from "@/lib/queries/articles";
 import type { Agent } from "@/payload-types";
 
@@ -71,10 +72,10 @@ export default async function ArticlePage({ params }: Props) {
           <time dateTime={article.publishedAt}>
             {articleDate.format(new Date(article.publishedAt))}
           </time>
-          {article.readingMinutes && (
+          {readingMinutes(article) && (
             <>
               <span>•</span>
-              <span>{article.readingMinutes} min read</span>
+              <span>{readingMinutes(article)} min read</span>
             </>
           )}
         </div>

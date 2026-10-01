@@ -1,4 +1,4 @@
-import { Star1, ArrowRight, Add, ArrowUp3 } from "@/components/ui/icons";
+import { ArrowRight, Add, ArrowUp3 } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { mediaUrl } from "@/lib/format";
@@ -36,13 +36,9 @@ export default async function Neighborhoods() {
                 {" listings"}
               </div>
               <div className="text-[13px] font-medium text-white">
-                Modern family homes
+                {spotlight?.tagline}
               </div>
             </div>
-          </div>
-          <div className="absolute top-6 left-6 px-3 py-1.5 rounded-full bg-white text-[#102E26] text-[11px] font-medium">
-            <Star1 size={12} variant="Bold" className="inline -mt-0.5" /> 4.9
-            Neighborhood Rating
           </div>
         </div>
         <div className="lg:pl-12 pt-12 lg:pt-0">
@@ -65,7 +61,7 @@ export default async function Neighborhoods() {
           <div className="mt-10 space-y-0 border-t border-white/10">
             {hoods.map((d) => (
               <Link
-                href={`/properties?mode=buy&neighborhood=${d.id}`}
+                href={`/properties?mode=all&neighborhood=${d.id}`}
                 className="flex items-center justify-between py-5 border-b border-white/10 group hover:bg-white/[0.03] px-2 -mx-2 transition"
                 key={d.id}
               >

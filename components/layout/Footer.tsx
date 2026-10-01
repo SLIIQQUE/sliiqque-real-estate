@@ -3,6 +3,7 @@ import NewsletterForm from "@/components/forms/NewsletterForm";
 import BrandLogo from "@/components/ui/BrandLogo";
 import { NAV } from "@/lib/nav";
 import { PROPERTY_TYPES } from "@/lib/propertyTypes";
+import { typeTarget } from "@/lib/typeCounts";
 import { getSettings } from "@/lib/queries/globals";
 import { getPropertyTypeCounts } from "@/lib/queries/properties";
 
@@ -62,13 +63,16 @@ export default async function Footer() {
         <div>
           <div className={HEADING}>Property Types</div>
           <ul className="space-y-3 text-[13px] text-[#C8D5D1]">
-            {PROPERTY_TYPES.filter((t) => t !== "Land").map((t) => (
-              <li key={t}>
-                <Link href={`/properties?mode=buy&type=${t}`} className={LINK}>
-                  {t}s • {counts[t]}
-                </Link>
-              </li>
-            ))}
+            {PROPERTY_TYPES.filter((t) => t !== "Land").map((t) => {
+              const target = typeTarget(t, counts);
+              return (
+                <li key={t}>
+                  <Link href={target.href} className={LINK}>
+                    {t}s • {target.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div>

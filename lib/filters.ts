@@ -2,7 +2,8 @@ import type { Where } from "payload";
 import { PROPERTY_TYPES } from "./propertyTypes";
 import { bandsFor } from "./priceBands";
 
-export type Mode = "buy" | "rent" | "sell";
+/** `all` shows homes for sale and for rent together (used by neighborhood links). */
+export type Mode = "buy" | "rent" | "sell" | "all";
 export const PAGE_SIZE = 12;
 export const SORTS = {
   newest: "-createdAt",
@@ -34,7 +35,7 @@ export type ParsedFilters =
 
 export function parseFilters(raw: Raw): ParsedFilters {
   const m = first(raw.mode);
-  const mode: Mode = m === "rent" || m === "sell" ? m : "buy";
+  const mode: Mode = m === "rent" || m === "sell" || m === "all" ? m : "buy";
   const filters: SearchFilters = {
     mode,
     sort: "newest",
@@ -68,7 +69,8 @@ export function parseFilters(raw: Raw): ParsedFilters {
   }
 
   const price = first(raw.price);
-  if (price) {
+  // Price bands differ between sale and rent, so they only apply to a single mode.
+  if (price && mode !== "all") {
     if (!bandsFor(mode).some((b) => b.key === price)) {
       return { ok: false, error: "Unknown price range.", filters };
     }
@@ -78,10 +80,10 @@ export function parseFilters(raw: Raw): ParsedFilters {
 }
 
 export function buildWhere(f: SearchFilters): Where {
-  const and: Where[] = [
-    { status: { equals: "active" } },
-    { listingType: { equals: f.mode === "rent" ? "rent" : "sale" } },
-  ];
+  const and: Where[] = [{ status: { equals: "active" } }];
+  if (f.mode !== "all") {
+    and.push({ listingType: { equals: f.mode === "rent" ? "rent" : "sale" } });
+  }
   if (f.type) and.push({ propertyType: { equals: f.type } });
   if (f.neighborhood) and.push({ neighborhood: { equals: f.neighborhood } });
 

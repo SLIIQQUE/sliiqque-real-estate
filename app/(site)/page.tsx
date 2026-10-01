@@ -8,14 +8,16 @@ import Insights from "@/components/sections/Insights";
 import Stats from "@/components/sections/Stats";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
+import { getListingStats } from "@/lib/queries/properties";
 
 // Content comes from Payload. Edits in /admin revalidate instantly; this is a daily safety net.
 export const revalidate = 86400;
 
-export default function Home() {
+export default async function Home() {
+  const { listed, cities } = await getListingStats();
   return (
     <PageShell>
-      <Hero />
+      <Hero listed={listed} cities={cities} />
       <FeaturedListings />
       <PropertyTypes />
       <Neighborhoods />

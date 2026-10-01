@@ -1,4 +1,3 @@
-import { ArrowLeft, ArrowRight } from "@/components/ui/icons";
 import { Suspense } from "react";
 import ListingCard from "@/components/ui/ListingCard";
 import ListingGridSkeleton from "@/components/ui/ListingGridSkeleton";
@@ -31,15 +30,9 @@ export default function FeaturedListings() {
           </h2>
         </div>
         <div className="hidden lg:flex items-center gap-2">
-          <button className="w-10 h-10 rounded-full border border-[#E8DDD0] flex items-center justify-center hover:bg-[#102E26] hover:text-white hover:border-[#102E26] transition">
-            <ArrowLeft size={16} />
-          </button>
-          <button className="w-10 h-10 rounded-full border border-[#E8DDD0] flex items-center justify-center hover:bg-[#102E26] hover:text-white hover:border-[#102E26] transition">
-            <ArrowRight size={16} />
-          </button>
           <a
             href="/properties"
-            className="ml-3 text-[13px] font-medium underline underline-offset-4"
+            className="text-[13px] font-medium underline underline-offset-4"
           >
             View All Properties
           </a>

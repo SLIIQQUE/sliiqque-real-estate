@@ -24,8 +24,8 @@ export default function FilterBar({
   filters: SearchFilters;
   neighborhoods: { id: number; name: string }[];
 }) {
-  const [mode, setMode] = useState<"buy" | "rent">(
-    filters.mode === "rent" ? "rent" : "buy",
+  const [mode, setMode] = useState<"buy" | "rent" | "all">(
+    filters.mode === "rent" || filters.mode === "all" ? filters.mode : "buy",
   );
 
   return (
@@ -35,7 +35,7 @@ export default function FilterBar({
     >
       <input type="hidden" name="mode" value={mode} />
       <div className="flex flex-wrap items-center gap-1 mb-4">
-        {(["buy", "rent"] as const).map((m) => (
+        {(["buy", "rent", "all"] as const).map((m) => (
           <button
             key={m}
             type="button"
@@ -43,7 +43,7 @@ export default function FilterBar({
             aria-pressed={mode === m}
             className={`px-5 py-2 rounded-full text-[13px] font-medium transition ${mode === m ? "bg-[#C26A4A] text-white shadow" : "text-[#6B6B6B] hover:bg-[#F5F1EB]"}`}
           >
-            {m === "buy" ? "Buy" : "Rent"}
+            {m === "buy" ? "Buy" : m === "rent" ? "Rent" : "All"}
           </button>
         ))}
         <Link
@@ -84,10 +84,13 @@ export default function FilterBar({
           <select
             name="price"
             key={mode}
+            disabled={mode === "all"}
             defaultValue={filters.mode === mode ? (filters.price ?? "") : ""}
             className={FIELD}
           >
-            <option value="">Any price</option>
+            <option value="">
+              {mode === "all" ? "Choose Buy or Rent" : "Any price"}
+            </option>
             {bandsFor(mode).map((b) => (
               <option key={b.key} value={b.key}>
                 {b.label}

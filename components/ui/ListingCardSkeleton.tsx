@@ -17,7 +17,6 @@ export default function ListingCardSkeleton() {
             For Sale
           </span>
         </div>
-        <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/70" />
         <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center">
           <span className="px-3 py-1 rounded-full bg-white/50 text-[11px] text-transparent">
             4 Beds • 4 Baths • 4,520 sqft

@@ -29,10 +29,10 @@ export default async function AgentPage({ params }: Props) {
   const agent = await getAgentBySlug((await params).slug);
   if (!agent) notFound();
 
-  const listings = await getAgentListings(agent.id);
+  const { listings, total } = await getAgentListings(agent.id);
   const photo = mediaUrl(agent.photo, "hero");
   const facts = [
-    { label: "Active listings", value: listings.length },
+    { label: "Active listings", value: total },
     {
       label: "Experience",
       value:
@@ -128,6 +128,11 @@ export default async function AgentPage({ params }: Props) {
         <h2 className="serif text-[30px] lg:text-[38px] leading-[1] mb-6">
           Listings with {agent.name.split(" ")[0]}
         </h2>
+        {total > listings.length && (
+          <p className="-mt-3 mb-6 text-[12px] text-[#9A9A9A]">
+            Showing {listings.length} of {total} active listings
+          </p>
+        )}
         {listings.length === 0 ? (
           <p className="text-[14px] text-[#6B6B6B]">
             No active listings right now. Send a message to hear about upcoming
