@@ -9554,7 +9554,7 @@ Error generating stack: ` +
                               s("div", {
                                 className:
                                   "serif text-[#FFFBF6] font-semibold text-[18px] tracking-tight",
-                                children: "Antixor",
+                                children: "SLIIQQUE",
                               }),
                               s("div", {
                                 className:
@@ -9664,7 +9664,7 @@ Error generating stack: ` +
                           s("div", {
                             className:
                               "serif text-white font-semibold text-[16px]",
-                            children: "Antixor",
+                            children: "SLIIQQUE",
                           }),
                           s("div", {
                             className:
@@ -9770,7 +9770,7 @@ Error generating stack: ` +
                               className:
                                 "mt-5 text-white/80 text-[14px] lg:text-[15px] leading-[1.6] max-w-[460px] font-light",
                               children:
-                                "From dream homes to smart investments. Antixor Property.com helps you find the right property, in the right place, at the right time.",
+                                "From dream homes to smart investments. SLIIQQUE helps you find the right property, in the right place, at the right time.",
                             }),
                             v("div", {
                               className: "mt-8 flex items-center gap-3",
@@ -10758,7 +10758,7 @@ Error generating stack: ` +
                             {
                               name: "Emily Johnson",
                               role: "Home Buyer • Los Angeles, CA",
-                              text: "Antixor made buying my first home seamless. Sophie was incredibly knowledgeable and patient. She found me the perfect place in Riverside within my budget. I couldn't be happier!",
+                              text: "SLIIQQUE made buying my first home seamless. Sophie was incredibly knowledgeable and patient. She found me the perfect place in Riverside within my budget. I couldn't be happier!",
                               img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
                             },
                             {
@@ -10894,7 +10894,7 @@ Error generating stack: ` +
                                             "w-8 h-8 rounded-full bg-white/10 flex items-center justify-center",
                                           children: "✉",
                                         }),
-                                        " hello@antixorproperty.com",
+                                        " sliiqque.space@gmail.com",
                                       ],
                                     }),
                                     v("div", {
@@ -10905,7 +10905,7 @@ Error generating stack: ` +
                                             "w-8 h-8 rounded-full bg-white/10 flex items-center justify-center",
                                           children: "☎",
                                         }),
-                                        " +1 (310) 555-0123",
+                                        " +234 704 100 0085",
                                       ],
                                     }),
                                   ],
@@ -11052,7 +11052,7 @@ Error generating stack: ` +
                                       s("div", {
                                         className:
                                           "serif font-semibold text-[18px]",
-                                        children: "Antixor",
+                                        children: "SLIIQQUE",
                                       }),
                                       s("div", {
                                         className:
@@ -11274,7 +11274,7 @@ Error generating stack: ` +
                         children: [
                           s("div", {
                             children:
-                              "© 2025 Antixor Property.com. All rights reserved.",
+                              "© 2025 SLIIQQUE. All rights reserved.",
                           }),
                           v("div", {
                             className: "flex items-center gap-6",

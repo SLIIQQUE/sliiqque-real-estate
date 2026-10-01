@@ -21,7 +21,7 @@ export default function Hero() {
   const [priceRange, setPriceRange] = useState("");
 
   return (
-    <section id="home" className="relative px-3 lg:px-6 pt-[68px] lg:pt-6 pb-6">
+    <section id="home" className="relative px-3 lg:px-6 pt-[84px] lg:pt-6 pb-6">
       <div className="relative rounded-[24px] lg:rounded-[32px] overflow-hidden min-h-[680px] lg:min-h-[820px] flex flex-col">
         <img
           src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop"
@@ -41,8 +41,8 @@ export default function Hero() {
             <span className="font-[400] italic">Fits Your Life</span>
           </h1>
           <p className="mt-5 text-white/80 text-[14px] lg:text-[15px] leading-[1.6] max-w-[460px] font-light">
-            From dream homes to smart investments. Antixor Property.com helps
-            you find the right property, in the right place, at the right time.
+            From dream homes to smart investments. SLIIQQUE helps you find the
+            right property, in the right place, at the right time.
           </p>
           <div className="mt-8 flex items-center gap-3">
             <Link

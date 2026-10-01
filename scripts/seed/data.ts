@@ -62,7 +62,7 @@ export const testimonials = [
     authorName: "Emily Johnson",
     authorRole: "Home Buyer • Los Angeles, CA",
     quote:
-      "Antixor made buying my first home seamless. Sophie was incredibly knowledgeable and patient. She found me the perfect place in Riverside within my budget. I couldn't be happier!",
+      "SLIIQQUE made buying my first home seamless. Sophie was incredibly knowledgeable and patient. She found me the perfect place in Riverside within my budget. I couldn't be happier!",
     photo: U("photo-1494790108377-be9c29b29330", 200),
   },
   {
