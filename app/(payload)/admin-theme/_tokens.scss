@@ -1,0 +1,86 @@
+/* Light palette = the site's cream surfaces, warm borders and deep-green primary. */
+:root {
+  --font-body:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  --style-radius-s: 10px;
+  --style-radius-m: 14px;
+  --style-radius-l: 24px;
+
+  --brand-green: #102e26;
+  --brand-green-hover: #14352e;
+  --brand-green-soft: #1b3d34;
+  --brand-terracotta: #c26a4a;
+  --brand-sage: #7a9a92;
+  --brand-mist: #c8d5d1;
+
+  --color-base-0: #fffbf6;
+  --color-base-50: #fdf6ef;
+  --color-base-100: #f7f0e6;
+  --color-base-150: #f0e9de;
+  --color-base-200: #e8ddd0;
+  --color-base-250: #ddd0c0;
+  --color-base-300: #cdbfae;
+  --color-base-350: #b9ac9b;
+  --color-base-400: #a29788;
+  --color-base-450: #8e857a;
+  --color-base-500: #7a7770;
+  --color-base-550: #6b6b6b;
+  --color-base-600: #5c5e5a;
+  --color-base-650: #4f5450;
+  --color-base-700: #434a46;
+  --color-base-750: #363e3a;
+  --color-base-800: #1a1a1a;
+  --color-base-850: #14221d;
+  --color-base-900: #102e26;
+  --color-base-950: #0a1f19;
+  --color-base-1000: #000;
+
+  /* "Success" is Payload's blue by default; the brand's success colour is green. */
+  --color-success-50: #eef6f2;
+  --color-success-100: #dcede5;
+  --color-success-150: #c5e1d4;
+  --color-success-200: #a9d2bf;
+  --color-success-250: #8cc2aa;
+  --color-success-300: #6fb094;
+  --color-success-350: #55a07f;
+  --color-success-400: #3e8f6d;
+  --color-success-450: #2f7e5f;
+  --color-success-500: #266e52;
+  --color-success-550: #1f6048;
+  --color-success-600: #1a523d;
+  --color-success-650: #164534;
+  --color-success-700: #123a2c;
+  --color-success-750: #0f3025;
+  --color-success-800: #0c271f;
+  --color-success-850: #0a2019;
+  --color-success-900: #081913;
+  --color-success-950: #05110e;
+}
+
+/* Dark palette = the site's green panels, so the admin and sidebar read as one family. */
+html[data-theme="dark"] {
+  --theme-elevation-0: #0f2620;
+  --theme-elevation-50: #133028;
+  --theme-elevation-100: #183a31;
+  --theme-elevation-150: #1f4439;
+  --theme-elevation-200: #285246;
+  --theme-elevation-250: #316052;
+  --theme-elevation-300: #3f7262;
+  --theme-elevation-350: #4d8171;
+  --theme-elevation-400: #5a8c7c;
+  --theme-elevation-450: #6a9a8b;
+  --theme-elevation-500: #7a9a92;
+  --theme-elevation-550: #88a7a0;
+  --theme-elevation-600: #9ab0aa;
+  --theme-elevation-650: #aabfba;
+  --theme-elevation-700: #c8d5d1;
+  --theme-elevation-750: #d4dfdc;
+  --theme-elevation-800: #e4ece9;
+  --theme-elevation-850: #eef3f1;
+  --theme-elevation-900: #f5f8f7;
+  --theme-elevation-950: #faf9f6;
+  --theme-elevation-1000: #fffbf6;
+  --theme-border-color: var(--theme-elevation-150);
+}

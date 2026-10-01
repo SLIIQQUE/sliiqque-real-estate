@@ -1,0 +1,101 @@
+/* Buttons, inputs, cards and tables: pill buttons, warm borders, rounded surfaces. */
+.btn {
+  border-radius: 999px;
+  --btn-font-weight: 500;
+
+  &--style-primary {
+    --bg-color: var(--brand-green);
+    --color: #fffbf6;
+    --hover-bg: var(--brand-green-hover);
+  }
+
+  &--style-secondary {
+    --btn-border: 1px solid var(--theme-elevation-200);
+    --hover-btn-border: 1px solid var(--brand-green);
+    --hover-color: var(--brand-green);
+  }
+
+  &--style-pill,
+  &--style-subtle,
+  &--style-tab {
+    border-radius: 999px;
+  }
+}
+
+html[data-theme="dark"] .btn--style-primary {
+  --bg-color: #fffbf6;
+  --color: var(--brand-green);
+  --hover-bg: #ffffff;
+}
+
+html[data-theme="dark"] .btn--style-secondary {
+  --btn-border: 1px solid var(--theme-elevation-300);
+  --hover-btn-border: 1px solid #fffbf6;
+  --hover-color: #fffbf6;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="search"],
+textarea,
+.react-select .rs__control,
+.date-time-picker input {
+  border-radius: var(--style-radius-m);
+  border-color: var(--theme-elevation-200);
+  background: var(--theme-input-bg);
+
+  &:focus,
+  &:focus-within {
+    border-color: var(--brand-green);
+    box-shadow: 0 0 0 3px rgba(16, 46, 38, 0.1);
+  }
+}
+
+html[data-theme="dark"] {
+  input:focus,
+  textarea:focus,
+  .react-select .rs__control--is-focused {
+    border-color: #fffbf6;
+    box-shadow: 0 0 0 3px rgba(255, 251, 246, 0.12);
+  }
+}
+
+.field-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--theme-elevation-500);
+}
+
+.card,
+.collection-list .table-wrap,
+.table table,
+.doc-controls,
+.gutter--left .document-fields__main {
+  border-radius: var(--style-radius-l);
+}
+
+.table table {
+  overflow: hidden;
+  border: 1px solid var(--theme-border-color);
+
+  thead th {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--theme-elevation-500);
+    background: var(--theme-elevation-50);
+  }
+}
+
+.pill {
+  border-radius: 999px;
+}
+
+.status {
+  border-radius: 999px;
+}

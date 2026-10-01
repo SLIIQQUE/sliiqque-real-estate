@@ -1,0 +1,7 @@
+/* Admin theme: maps Payload's design tokens onto the public site's design system. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import "./admin-theme/tokens";
+@import "./admin-theme/typography";
+@import "./admin-theme/nav";
+@import "./admin-theme/controls";
+@import "./admin-theme/dashboard";

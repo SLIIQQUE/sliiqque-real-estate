@@ -1,0 +1,74 @@
+/* Serif for titles (as on the site), Inter for everything else. */
+h1,
+h2,
+h3,
+.doc-header__title,
+.login__brand + h1,
+.collection-list__header h1,
+.dashboard__group h2,
+.card__title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  line-height: 1.05;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(194, 106, 74, 0.25);
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--brand-terracotta);
+  outline-offset: 2px;
+}
+
+/* Logo tones: black artwork on the light theme, cream artwork on the dark theme. */
+.sq-brand {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+
+  img {
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__admin {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--theme-elevation-500);
+  }
+}
+
+.sq-brand-icon img {
+  width: 18px;
+  height: auto;
+  max-width: none;
+}
+
+.sq-brand__light {
+  display: none;
+}
+
+html[data-theme="dark"] {
+  .sq-brand__dark {
+    display: none;
+  }
+  .sq-brand__light {
+    display: block;
+  }
+}
